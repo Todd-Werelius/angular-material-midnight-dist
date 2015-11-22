@@ -1,6 +1,5 @@
 *.log
 .DS_Store
-commit.log
 node_modules
 dist
 /.idea/
