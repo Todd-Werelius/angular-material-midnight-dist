@@ -439,6 +439,7 @@ input {
           align-items: stretch; }
 
 .layout-align-start,
+.layout-align-start-stretch,
 .layout-align-start-start,
 .layout-align-start-center,
 .layout-align-start-end {
@@ -447,6 +448,7 @@ input {
           justify-content: start; }
 
 .layout-align-center,
+.layout-align-center-stretch,
 .layout-align-center-start,
 .layout-align-center-center,
 .layout-align-center-end {
@@ -455,6 +457,7 @@ input {
           justify-content: center; }
 
 .layout-align-end,
+.layout-align-end-stretch,
 .layout-align-end-start,
 .layout-align-end-center,
 .layout-align-end-end {
@@ -471,6 +474,7 @@ input {
           justify-content: stretch; }
 
 .layout-align-space-around,
+.layout-align-space-around-stretch,
 .layout-align-space-around-center,
 .layout-align-space-around-start,
 .layout-align-space-around-end {
@@ -479,6 +483,7 @@ input {
           justify-content: space-around; }
 
 .layout-align-space-between,
+.layout-align-space-between-stretch,
 .layout-align-space-between-center,
 .layout-align-space-between-start,
 .layout-align-space-between-end {
@@ -1379,6 +1384,7 @@ input {
         -ms-flex-align: stretch;
             align-items: stretch; }
   .layout-align-sm-start,
+  .layout-align-sm-start-stretch,
   .layout-align-sm-start-start,
   .layout-align-sm-start-center,
   .layout-align-sm-start-end {
@@ -1386,6 +1392,7 @@ input {
         -ms-flex-pack: start;
             justify-content: start; }
   .layout-align-sm-center,
+  .layout-align-sm-center-stretch,
   .layout-align-sm-center-start,
   .layout-align-sm-center-center,
   .layout-align-sm-center-end {
@@ -1393,6 +1400,7 @@ input {
         -ms-flex-pack: center;
             justify-content: center; }
   .layout-align-sm-end,
+  .layout-align-sm-end-stretch,
   .layout-align-sm-end-start,
   .layout-align-sm-end-center,
   .layout-align-sm-end-end {
@@ -1407,6 +1415,7 @@ input {
         -ms-flex-pack: stretch;
             justify-content: stretch; }
   .layout-align-sm-space-around,
+  .layout-align-sm-space-around-stretch,
   .layout-align-sm-space-around-center,
   .layout-align-sm-space-around-start,
   .layout-align-sm-space-around-end {
@@ -1414,6 +1423,7 @@ input {
         -ms-flex-pack: distribute;
             justify-content: space-around; }
   .layout-align-sm-space-between,
+  .layout-align-sm-space-between-stretch,
   .layout-align-sm-space-between-center,
   .layout-align-sm-space-between-start,
   .layout-align-sm-space-between-end {
@@ -2158,6 +2168,7 @@ input {
         -ms-flex-align: stretch;
             align-items: stretch; }
   .layout-align-gt-sm-start,
+  .layout-align-gt-sm-start-stretch,
   .layout-align-gt-sm-start-start,
   .layout-align-gt-sm-start-center,
   .layout-align-gt-sm-start-end {
@@ -2165,6 +2176,7 @@ input {
         -ms-flex-pack: start;
             justify-content: start; }
   .layout-align-gt-sm-center,
+  .layout-align-gt-sm-center-stretch,
   .layout-align-gt-sm-center-start,
   .layout-align-gt-sm-center-center,
   .layout-align-gt-sm-center-end {
@@ -2172,6 +2184,7 @@ input {
         -ms-flex-pack: center;
             justify-content: center; }
   .layout-align-gt-sm-end,
+  .layout-align-gt-sm-end-stretch,
   .layout-align-gt-sm-end-start,
   .layout-align-gt-sm-end-center,
   .layout-align-gt-sm-end-end {
@@ -2186,6 +2199,7 @@ input {
         -ms-flex-pack: stretch;
             justify-content: stretch; }
   .layout-align-gt-sm-space-around,
+  .layout-align-gt-sm-space-around-stretch,
   .layout-align-gt-sm-space-around-center,
   .layout-align-gt-sm-space-around-start,
   .layout-align-gt-sm-space-around-end {
@@ -2193,6 +2207,7 @@ input {
         -ms-flex-pack: distribute;
             justify-content: space-around; }
   .layout-align-gt-sm-space-between,
+  .layout-align-gt-sm-space-between-stretch,
   .layout-align-gt-sm-space-between-center,
   .layout-align-gt-sm-space-between-start,
   .layout-align-gt-sm-space-between-end {
@@ -2941,6 +2956,7 @@ input {
         -ms-flex-align: stretch;
             align-items: stretch; }
   .layout-align-md-start,
+  .layout-align-md-start-stretch,
   .layout-align-md-start-start,
   .layout-align-md-start-center,
   .layout-align-md-start-end {
@@ -2948,6 +2964,7 @@ input {
         -ms-flex-pack: start;
             justify-content: start; }
   .layout-align-md-center,
+  .layout-align-md-center-stretch,
   .layout-align-md-center-start,
   .layout-align-md-center-center,
   .layout-align-md-center-end {
@@ -2955,6 +2972,7 @@ input {
         -ms-flex-pack: center;
             justify-content: center; }
   .layout-align-md-end,
+  .layout-align-md-end-stretch,
   .layout-align-md-end-start,
   .layout-align-md-end-center,
   .layout-align-md-end-end {
@@ -2969,6 +2987,7 @@ input {
         -ms-flex-pack: stretch;
             justify-content: stretch; }
   .layout-align-md-space-around,
+  .layout-align-md-space-around-stretch,
   .layout-align-md-space-around-center,
   .layout-align-md-space-around-start,
   .layout-align-md-space-around-end {
@@ -2976,6 +2995,7 @@ input {
         -ms-flex-pack: distribute;
             justify-content: space-around; }
   .layout-align-md-space-between,
+  .layout-align-md-space-between-stretch,
   .layout-align-md-space-between-center,
   .layout-align-md-space-between-start,
   .layout-align-md-space-between-end {
@@ -3720,6 +3740,7 @@ input {
         -ms-flex-align: stretch;
             align-items: stretch; }
   .layout-align-gt-md-start,
+  .layout-align-gt-md-start-stretch,
   .layout-align-gt-md-start-start,
   .layout-align-gt-md-start-center,
   .layout-align-gt-md-start-end {
@@ -3727,6 +3748,7 @@ input {
         -ms-flex-pack: start;
             justify-content: start; }
   .layout-align-gt-md-center,
+  .layout-align-gt-md-center-stretch,
   .layout-align-gt-md-center-start,
   .layout-align-gt-md-center-center,
   .layout-align-gt-md-center-end {
@@ -3734,6 +3756,7 @@ input {
         -ms-flex-pack: center;
             justify-content: center; }
   .layout-align-gt-md-end,
+  .layout-align-gt-md-end-stretch,
   .layout-align-gt-md-end-start,
   .layout-align-gt-md-end-center,
   .layout-align-gt-md-end-end {
@@ -3748,6 +3771,7 @@ input {
         -ms-flex-pack: stretch;
             justify-content: stretch; }
   .layout-align-gt-md-space-around,
+  .layout-align-gt-md-space-around-stretch,
   .layout-align-gt-md-space-around-center,
   .layout-align-gt-md-space-around-start,
   .layout-align-gt-md-space-around-end {
@@ -3755,6 +3779,7 @@ input {
         -ms-flex-pack: distribute;
             justify-content: space-around; }
   .layout-align-gt-md-space-between,
+  .layout-align-gt-md-space-between-stretch,
   .layout-align-gt-md-space-between-center,
   .layout-align-gt-md-space-between-start,
   .layout-align-gt-md-space-between-end {
@@ -4503,6 +4528,7 @@ input {
         -ms-flex-align: stretch;
             align-items: stretch; }
   .layout-align-lg-start,
+  .layout-align-lg-start-stretch,
   .layout-align-lg-start-start,
   .layout-align-lg-start-center,
   .layout-align-lg-start-end {
@@ -4510,6 +4536,7 @@ input {
         -ms-flex-pack: start;
             justify-content: start; }
   .layout-align-lg-center,
+  .layout-align-lg-center-stretch,
   .layout-align-lg-center-start,
   .layout-align-lg-center-center,
   .layout-align-lg-center-end {
@@ -4517,6 +4544,7 @@ input {
         -ms-flex-pack: center;
             justify-content: center; }
   .layout-align-lg-end,
+  .layout-align-lg-end-stretch,
   .layout-align-lg-end-start,
   .layout-align-lg-end-center,
   .layout-align-lg-end-end {
@@ -4531,6 +4559,7 @@ input {
         -ms-flex-pack: stretch;
             justify-content: stretch; }
   .layout-align-lg-space-around,
+  .layout-align-lg-space-around-stretch,
   .layout-align-lg-space-around-center,
   .layout-align-lg-space-around-start,
   .layout-align-lg-space-around-end {
@@ -4538,6 +4567,7 @@ input {
         -ms-flex-pack: distribute;
             justify-content: space-around; }
   .layout-align-lg-space-between,
+  .layout-align-lg-space-between-stretch,
   .layout-align-lg-space-between-center,
   .layout-align-lg-space-between-start,
   .layout-align-lg-space-between-end {
@@ -5284,6 +5314,7 @@ input {
         -ms-flex-align: stretch;
             align-items: stretch; }
   .layout-align-gt-lg-start,
+  .layout-align-gt-lg-start-stretch,
   .layout-align-gt-lg-start-start,
   .layout-align-gt-lg-start-center,
   .layout-align-gt-lg-start-end {
@@ -5291,6 +5322,7 @@ input {
         -ms-flex-pack: start;
             justify-content: start; }
   .layout-align-gt-lg-center,
+  .layout-align-gt-lg-center-stretch,
   .layout-align-gt-lg-center-start,
   .layout-align-gt-lg-center-center,
   .layout-align-gt-lg-center-end {
@@ -5298,6 +5330,7 @@ input {
         -ms-flex-pack: center;
             justify-content: center; }
   .layout-align-gt-lg-end,
+  .layout-align-gt-lg-end-stretch,
   .layout-align-gt-lg-end-start,
   .layout-align-gt-lg-end-center,
   .layout-align-gt-lg-end-end {
@@ -5312,6 +5345,7 @@ input {
         -ms-flex-pack: stretch;
             justify-content: stretch; }
   .layout-align-gt-lg-space-around,
+  .layout-align-gt-lg-space-around-stretch,
   .layout-align-gt-lg-space-around-center,
   .layout-align-gt-lg-space-around-start,
   .layout-align-gt-lg-space-around-end {
@@ -5319,6 +5353,7 @@ input {
         -ms-flex-pack: distribute;
             justify-content: space-around; }
   .layout-align-gt-lg-space-between,
+  .layout-align-gt-lg-space-between-stretch,
   .layout-align-gt-lg-space-between-center,
   .layout-align-gt-lg-space-between-start,
   .layout-align-gt-lg-space-between-end {
