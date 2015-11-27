@@ -1,2 +1,2 @@
-# angular-material-midnight-dist
-Build Angular Material Master Distribution Files at Midnight PST every night 
+# Angular Material Bleeding Edge Build
+Check Angular Material Master Distribution Hourly, Build if pull shows changes
