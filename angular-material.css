@@ -8356,7 +8356,7 @@ md-autocomplete {
   overflow: visible;
   min-width: 190px; }
   md-autocomplete[disabled] input {
-    cursor: not-allowed; }
+    cursor: default; }
   md-autocomplete[md-floating-label] {
     border-radius: 0;
     background: transparent;
@@ -9207,7 +9207,7 @@ md-checkbox {
   md-checkbox.md-checked .md-icon {
     border: none; }
   md-checkbox[disabled] {
-    cursor: no-drop; }
+    cursor: default; }
   md-checkbox.md-checked .md-icon:after {
     box-sizing: border-box;
     -webkit-transform: rotate(45deg);
@@ -11241,6 +11241,10 @@ md-radio-button {
   white-space: nowrap;
   cursor: pointer;
   position: relative; }
+  md-radio-button[disabled] {
+    cursor: default; }
+    md-radio-button[disabled] .md-container {
+      cursor: default; }
   md-radio-button .md-container {
     position: absolute;
     top: 50%;
@@ -11619,6 +11623,8 @@ md-option {
   width: auto;
   padding: 0 16px 0 16px;
   height: 48px; }
+  md-option[disabled] {
+    cursor: default; }
   md-option:focus {
     outline: none; }
   md-option .md-text {
@@ -12098,6 +12104,10 @@ md-switch {
     md-switch:last-of-type bdo[dir=ltr] {
       direction: ltr;
       unicode-bidi: bidi-override; }
+  md-switch[disabled] {
+    cursor: default; }
+    md-switch[disabled] .md-container {
+      cursor: default; }
   md-switch .md-container {
     cursor: -webkit-grab;
     cursor: grab;
