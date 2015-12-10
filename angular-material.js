@@ -9453,8 +9453,13 @@ function MdDialogProvider($$interimElementProvider) {
       options.hideBackdrop(options.$destroy);
 
       // Remove the focus traps that we added earlier for keeping focus within the dialog.
-      topFocusTrap.parentNode.removeChild(topFocusTrap);
-      bottomFocusTrap.parentNode.removeChild(bottomFocusTrap);
+      if (topFocusTrap && topFocusTrap.parentNode) {
+        topFocusTrap.parentNode.removeChild(topFocusTrap);
+      }
+
+      if (bottomFocusTrap && bottomFocusTrap.parentNode) {
+        bottomFocusTrap.parentNode.removeChild(bottomFocusTrap);
+      }
 
       // For navigation $destroy events, do a quick, non-animated removal,
       // but for normal closes (from clicks, etc) animate the removal
@@ -9970,6 +9975,8 @@ MdDividerDirective.$inject = ["$mdTheming"];
     setupDefaults();
     setupListeners();
     setupWatchers();
+
+    var initialAnimationAttempts = 0;
     fireInitialAnimations();
 
     function setupDefaults() {
@@ -9981,6 +9988,9 @@ MdDividerDirective.$inject = ["$mdTheming"];
 
       // Start the keyboard interaction at the first action
       resetActionIndex();
+
+      // Add an animations waiting class so we know not to run
+      $element.addClass('md-animations-waiting');
     }
 
     function setupListeners() {
@@ -10074,11 +10084,23 @@ MdDividerDirective.$inject = ["$mdTheming"];
       });
     }
 
-    // Fire the animations once in a separate digest loop to initialize them
     function fireInitialAnimations() {
-      $mdUtil.nextTick(function() {
-        $animate.addClass($element, 'md-noop');
-      });
+      // If the element is actually visible on the screen
+      if ($element[0].scrollHeight > 0) {
+        // Fire our animation
+        $animate.addClass($element, 'md-animations-ready').then(function() {
+          // Remove the waiting class
+          $element.removeClass('md-animations-waiting');
+        });
+      }
+
+      // Otherwise, try for up to 1 second before giving up
+      else if (initialAnimationAttempts < 10) {
+        $timeout(fireInitialAnimations, 100);
+
+        // Increment our counter
+        initialAnimationAttempts = initialAnimationAttempts + 1;
+      }
     }
 
     function enableKeyboard() {
@@ -10340,6 +10362,11 @@ MdDividerDirective.$inject = ["$mdTheming"];
     function delayDone(done) { $timeout(done, cssAnimationDuration, false); }
 
     function runAnimation(element) {
+      // Don't run if we are still waiting and we are not ready
+      if (element.hasClass('md-animations-waiting') && !element.hasClass('md-animations-ready')) {
+        return;
+      }
+
       var el = element[0];
       var ctrl = element.controller('mdFabSpeedDial');
       var items = el.querySelectorAll('.md-fab-action-item');
@@ -10410,8 +10437,10 @@ MdDividerDirective.$inject = ["$mdTheming"];
       addClass: function(element, className, done) {
         if (element.hasClass('md-fling')) {
           runAnimation(element);
+          delayDone(done);
+        } else {
+          done();
         }
-        delayDone(done);
       },
       removeClass: function(element, className, done) {
         runAnimation(element);
@@ -16569,6 +16598,9 @@ MdToastDirective.$inject = ["$mdToast"];
   *     have an outer `md-toast` element.
   *   - `template` - `{string=}`: Same as templateUrl, except this is an actual
   *     template string.
+  *   - `autoWrap` - `{boolean=}`: Whether or not to automatically wrap the template content with a
+  *     `<div class="md-toast-content">` if one is not provided. Defaults to true. Can be disabled if you provide a
+  *     custom toast directive.
   *   - `scope` - `{object=}`: the scope to link the template / controller to. If none is specified, it will create a new child scope.
   *     This scope will be destroyed when the toast is removed unless `preserveScope` is set to true.
   *   - `preserveScope` - `{boolean=}`: whether to preserve the scope when the element is removed. Default is false
@@ -16691,7 +16723,28 @@ function MdToastProvider($$interimElementProvider) {
       onRemove: onRemove,
       position: 'bottom left',
       themable: true,
-      hideDelay: 3000
+      hideDelay: 3000,
+      autoWrap: true,
+      transformTemplate: function(template, options) {
+        var shouldAddWrapper = options.autoWrap && template && !/md-toast-content/g.test(template);
+
+        if (shouldAddWrapper) {
+          // Root element of template will be <md-toast>. We need to wrap all of its content inside of
+          // of <div class="md-toast-content">. All templates provided here should be static, developer-controlled
+          // content (meaning we're not attempting to guard against XSS).
+          var parsedTemplate = angular.element(template);
+          var wrappedContent = '<div class="md-toast-content">' + parsedTemplate.html() + '</div>';
+
+          parsedTemplate.empty().append(wrappedContent);
+
+          // Underlying interimElement expects a template string.
+          return parsedTemplate[0].outerHTML;
+        }
+
+        return shouldAddWrapper ?
+            '<div class="md-toast-content">' + template + '</div>' :
+            template || '';
+      }
     };
 
     function onShow(scope, element, options) {
