@@ -9976,7 +9976,7 @@ md-card {
               flex-direction: column; }
       md-card md-card-header md-card-header-text .md-subhead {
         font-size: 14px; }
-  md-card md-card img,
+  md-card > img,
   md-card > :not(md-card-content) img {
     box-sizing: border-box;
     display: -webkit-flex;
