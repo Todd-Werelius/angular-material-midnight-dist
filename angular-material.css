@@ -533,9 +533,9 @@ input {
   margin-left: calc(200% / 3); }
 
 .layout-align {
-  -webkit-justify-content: start;
+  -webkit-justify-content: flex-start;
       -ms-flex-pack: start;
-          justify-content: start;
+          justify-content: flex-start;
   -webkit-align-content: stretch;
       -ms-flex-line-pack: stretch;
           align-content: stretch;
@@ -549,9 +549,9 @@ input {
 .layout-align-start-center,
 .layout-align-start-end,
 .layout-align-start-stretch {
-  -webkit-justify-content: start;
+  -webkit-justify-content: flex-start;
       -ms-flex-pack: start;
-          justify-content: start; }
+          justify-content: flex-start; }
 
 .layout-align-center,
 .layout-align-center-stretch,
@@ -1579,9 +1579,9 @@ input {
   .offset-xs-66, .flex-offset-xs-66 {
     margin-left: calc(200% / 3); }
   .layout-align-xs {
-    -webkit-justify-content: start;
+    -webkit-justify-content: flex-start;
         -ms-flex-pack: start;
-            justify-content: start;
+            justify-content: flex-start;
     -webkit-align-content: stretch;
         -ms-flex-line-pack: stretch;
             align-content: stretch;
@@ -1594,9 +1594,9 @@ input {
   .layout-align-xs-start-center,
   .layout-align-xs-start-end,
   .layout-align-xs-start-stretch {
-    -webkit-justify-content: start;
+    -webkit-justify-content: flex-start;
         -ms-flex-pack: start;
-            justify-content: start; }
+            justify-content: flex-start; }
   .layout-align-xs-center,
   .layout-align-xs-center-stretch,
   .layout-align-xs-center-start,
@@ -2463,9 +2463,9 @@ input {
   .offset-gt-xs-66, .flex-offset-gt-xs-66 {
     margin-left: calc(200% / 3); }
   .layout-align-gt-xs {
-    -webkit-justify-content: start;
+    -webkit-justify-content: flex-start;
         -ms-flex-pack: start;
-            justify-content: start;
+            justify-content: flex-start;
     -webkit-align-content: stretch;
         -ms-flex-line-pack: stretch;
             align-content: stretch;
@@ -2478,9 +2478,9 @@ input {
   .layout-align-gt-xs-start-center,
   .layout-align-gt-xs-start-end,
   .layout-align-gt-xs-start-stretch {
-    -webkit-justify-content: start;
+    -webkit-justify-content: flex-start;
         -ms-flex-pack: start;
-            justify-content: start; }
+            justify-content: flex-start; }
   .layout-align-gt-xs-center,
   .layout-align-gt-xs-center-stretch,
   .layout-align-gt-xs-center-start,
@@ -3351,9 +3351,9 @@ input {
   .offset-sm-66, .flex-offset-sm-66 {
     margin-left: calc(200% / 3); }
   .layout-align-sm {
-    -webkit-justify-content: start;
+    -webkit-justify-content: flex-start;
         -ms-flex-pack: start;
-            justify-content: start;
+            justify-content: flex-start;
     -webkit-align-content: stretch;
         -ms-flex-line-pack: stretch;
             align-content: stretch;
@@ -3366,9 +3366,9 @@ input {
   .layout-align-sm-start-center,
   .layout-align-sm-start-end,
   .layout-align-sm-start-stretch {
-    -webkit-justify-content: start;
+    -webkit-justify-content: flex-start;
         -ms-flex-pack: start;
-            justify-content: start; }
+            justify-content: flex-start; }
   .layout-align-sm-center,
   .layout-align-sm-center-stretch,
   .layout-align-sm-center-start,
@@ -4235,9 +4235,9 @@ input {
   .offset-gt-sm-66, .flex-offset-gt-sm-66 {
     margin-left: calc(200% / 3); }
   .layout-align-gt-sm {
-    -webkit-justify-content: start;
+    -webkit-justify-content: flex-start;
         -ms-flex-pack: start;
-            justify-content: start;
+            justify-content: flex-start;
     -webkit-align-content: stretch;
         -ms-flex-line-pack: stretch;
             align-content: stretch;
@@ -4250,9 +4250,9 @@ input {
   .layout-align-gt-sm-start-center,
   .layout-align-gt-sm-start-end,
   .layout-align-gt-sm-start-stretch {
-    -webkit-justify-content: start;
+    -webkit-justify-content: flex-start;
         -ms-flex-pack: start;
-            justify-content: start; }
+            justify-content: flex-start; }
   .layout-align-gt-sm-center,
   .layout-align-gt-sm-center-stretch,
   .layout-align-gt-sm-center-start,
@@ -5123,9 +5123,9 @@ input {
   .offset-md-66, .flex-offset-md-66 {
     margin-left: calc(200% / 3); }
   .layout-align-md {
-    -webkit-justify-content: start;
+    -webkit-justify-content: flex-start;
         -ms-flex-pack: start;
-            justify-content: start;
+            justify-content: flex-start;
     -webkit-align-content: stretch;
         -ms-flex-line-pack: stretch;
             align-content: stretch;
@@ -5138,9 +5138,9 @@ input {
   .layout-align-md-start-center,
   .layout-align-md-start-end,
   .layout-align-md-start-stretch {
-    -webkit-justify-content: start;
+    -webkit-justify-content: flex-start;
         -ms-flex-pack: start;
-            justify-content: start; }
+            justify-content: flex-start; }
   .layout-align-md-center,
   .layout-align-md-center-stretch,
   .layout-align-md-center-start,
@@ -6007,9 +6007,9 @@ input {
   .offset-gt-md-66, .flex-offset-gt-md-66 {
     margin-left: calc(200% / 3); }
   .layout-align-gt-md {
-    -webkit-justify-content: start;
+    -webkit-justify-content: flex-start;
         -ms-flex-pack: start;
-            justify-content: start;
+            justify-content: flex-start;
     -webkit-align-content: stretch;
         -ms-flex-line-pack: stretch;
             align-content: stretch;
@@ -6022,9 +6022,9 @@ input {
   .layout-align-gt-md-start-center,
   .layout-align-gt-md-start-end,
   .layout-align-gt-md-start-stretch {
-    -webkit-justify-content: start;
+    -webkit-justify-content: flex-start;
         -ms-flex-pack: start;
-            justify-content: start; }
+            justify-content: flex-start; }
   .layout-align-gt-md-center,
   .layout-align-gt-md-center-stretch,
   .layout-align-gt-md-center-start,
@@ -6895,9 +6895,9 @@ input {
   .offset-lg-66, .flex-offset-lg-66 {
     margin-left: calc(200% / 3); }
   .layout-align-lg {
-    -webkit-justify-content: start;
+    -webkit-justify-content: flex-start;
         -ms-flex-pack: start;
-            justify-content: start;
+            justify-content: flex-start;
     -webkit-align-content: stretch;
         -ms-flex-line-pack: stretch;
             align-content: stretch;
@@ -6910,9 +6910,9 @@ input {
   .layout-align-lg-start-center,
   .layout-align-lg-start-end,
   .layout-align-lg-start-stretch {
-    -webkit-justify-content: start;
+    -webkit-justify-content: flex-start;
         -ms-flex-pack: start;
-            justify-content: start; }
+            justify-content: flex-start; }
   .layout-align-lg-center,
   .layout-align-lg-center-stretch,
   .layout-align-lg-center-start,
@@ -7779,9 +7779,9 @@ input {
   .offset-gt-lg-66, .flex-offset-gt-lg-66 {
     margin-left: calc(200% / 3); }
   .layout-align-gt-lg {
-    -webkit-justify-content: start;
+    -webkit-justify-content: flex-start;
         -ms-flex-pack: start;
-            justify-content: start;
+            justify-content: flex-start;
     -webkit-align-content: stretch;
         -ms-flex-line-pack: stretch;
             align-content: stretch;
@@ -7794,9 +7794,9 @@ input {
   .layout-align-gt-lg-start-center,
   .layout-align-gt-lg-start-end,
   .layout-align-gt-lg-start-stretch {
-    -webkit-justify-content: start;
+    -webkit-justify-content: flex-start;
         -ms-flex-pack: start;
-            justify-content: start; }
+            justify-content: flex-start; }
   .layout-align-gt-lg-center,
   .layout-align-gt-lg-center-stretch,
   .layout-align-gt-lg-center-start,
@@ -8661,9 +8661,9 @@ input {
   .offset-xl-66, .flex-offset-xl-66 {
     margin-left: calc(200% / 3); }
   .layout-align-xl {
-    -webkit-justify-content: start;
+    -webkit-justify-content: flex-start;
         -ms-flex-pack: start;
-            justify-content: start;
+            justify-content: flex-start;
     -webkit-align-content: stretch;
         -ms-flex-line-pack: stretch;
             align-content: stretch;
@@ -8676,9 +8676,9 @@ input {
   .layout-align-xl-start-center,
   .layout-align-xl-start-end,
   .layout-align-xl-start-stretch {
-    -webkit-justify-content: start;
+    -webkit-justify-content: flex-start;
         -ms-flex-pack: start;
-            justify-content: start; }
+            justify-content: flex-start; }
   .layout-align-xl-center,
   .layout-align-xl-center-stretch,
   .layout-align-xl-center-start,
