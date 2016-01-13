@@ -10,7 +10,7 @@
 (function(){
 "use strict";
 
-angular.module('ngMaterial', ["ng","ngAnimate","ngAria","material.core","material.core.gestures","material.core.layout","material.core.theming.palette","material.core.theming","material.core.animate","material.components.autocomplete","material.components.backdrop","material.components.bottomSheet","material.components.button","material.components.card","material.components.checkbox","material.components.chips","material.components.content","material.components.datepicker","material.components.dialog","material.components.divider","material.components.fabShared","material.components.fabSpeedDial","material.components.fabToolbar","material.components.fabTrigger","material.components.gridList","material.components.fabActions","material.components.icon","material.components.input","material.components.list","material.components.menu","material.components.menuBar","material.components.progressCircular","material.components.progressLinear","material.components.radioButton","material.components.select","material.components.showHide","material.components.sidenav","material.components.slider","material.components.sticky","material.components.subheader","material.components.swipe","material.components.switch","material.components.tabs","material.components.toast","material.components.toolbar","material.components.tooltip","material.components.virtualRepeat","material.components.whiteframe"]);
+angular.module('ngMaterial', ["ng","ngAnimate","ngAria","material.core","material.core.gestures","material.core.layout","material.core.theming.palette","material.core.theming","material.core.animate","material.components.autocomplete","material.components.backdrop","material.components.bottomSheet","material.components.button","material.components.card","material.components.checkbox","material.components.chips","material.components.content","material.components.datepicker","material.components.dialog","material.components.divider","material.components.fabActions","material.components.fabShared","material.components.fabSpeedDial","material.components.fabToolbar","material.components.fabTrigger","material.components.gridList","material.components.icon","material.components.input","material.components.list","material.components.menu","material.components.menuBar","material.components.progressCircular","material.components.progressLinear","material.components.radioButton","material.components.select","material.components.showHide","material.components.sidenav","material.components.slider","material.components.sticky","material.components.subheader","material.components.swipe","material.components.switch","material.components.tabs","material.components.toast","material.components.toolbar","material.components.tooltip","material.components.virtualRepeat","material.components.whiteframe"]);
 })();
 (function(){
 "use strict";
@@ -9893,6 +9893,64 @@ MdDividerDirective.$inject = ["$mdTheming"];
 (function() {
   'use strict';
 
+  /**
+   * @ngdoc module
+   * @name material.components.fabActions
+   */
+  angular
+    .module('material.components.fabActions', ['material.core'])
+    .directive('mdFabActions', MdFabActionsDirective);
+
+  /**
+   * @ngdoc directive
+   * @name mdFabActions
+   * @module material.components.fabActions
+   *
+   * @restrict E
+   *
+   * @description
+   * The `<md-fab-actions>` directive is used inside of a `<md-fab-speed-dial>` or
+   * `<md-fab-toolbar>` directive to mark an element (or elements) as the actions and setup the
+   * proper event listeners.
+   *
+   * @usage
+   * See the `<md-fab-speed-dial>` or `<md-fab-toolbar>` directives for example usage.
+   */
+  function MdFabActionsDirective() {
+    return {
+      restrict: 'E',
+
+      require: ['^?mdFabSpeedDial', '^?mdFabToolbar'],
+
+      compile: function(element, attributes) {
+        var children = element.children();
+
+        var hasNgRepeat = false;
+
+        angular.forEach(['', 'data-', 'x-'], function(prefix) {
+          hasNgRepeat = hasNgRepeat || (children.attr(prefix + 'ng-repeat') ? true : false);
+        });
+
+        // Support both ng-repeat and static content
+        if (hasNgRepeat) {
+          children.addClass('md-fab-action-item');
+        } else {
+          // Wrap every child in a new div and add a class that we can scale/fling independently
+          children.wrap('<div class="md-fab-action-item">');
+        }
+      }
+    }
+  }
+
+})();
+
+})();
+(function(){
+"use strict";
+
+(function() {
+  'use strict';
+
   angular.module('material.components.fabShared', ['material.core'])
     .controller('FabController', FabController);
 
@@ -11440,64 +11498,6 @@ function GridTileCaptionDirective() {
     transclude: true
   };
 }
-
-})();
-(function(){
-"use strict";
-
-(function() {
-  'use strict';
-
-  /**
-   * @ngdoc module
-   * @name material.components.fabActions
-   */
-  angular
-    .module('material.components.fabActions', ['material.core'])
-    .directive('mdFabActions', MdFabActionsDirective);
-
-  /**
-   * @ngdoc directive
-   * @name mdFabActions
-   * @module material.components.fabActions
-   *
-   * @restrict E
-   *
-   * @description
-   * The `<md-fab-actions>` directive is used inside of a `<md-fab-speed-dial>` or
-   * `<md-fab-toolbar>` directive to mark an element (or elements) as the actions and setup the
-   * proper event listeners.
-   *
-   * @usage
-   * See the `<md-fab-speed-dial>` or `<md-fab-toolbar>` directives for example usage.
-   */
-  function MdFabActionsDirective() {
-    return {
-      restrict: 'E',
-
-      require: ['^?mdFabSpeedDial', '^?mdFabToolbar'],
-
-      compile: function(element, attributes) {
-        var children = element.children();
-
-        var hasNgRepeat = false;
-
-        angular.forEach(['', 'data-', 'x-'], function(prefix) {
-          hasNgRepeat = hasNgRepeat || (children.attr(prefix + 'ng-repeat') ? true : false);
-        });
-
-        // Support both ng-repeat and static content
-        if (hasNgRepeat) {
-          children.addClass('md-fab-action-item');
-        } else {
-          // Wrap every child in a new div and add a class that we can scale/fling independently
-          children.wrap('<div class="md-fab-action-item">');
-        }
-      }
-    }
-  }
-
-})();
 
 })();
 (function(){
