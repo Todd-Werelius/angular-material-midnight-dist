@@ -8571,6 +8571,8 @@ function iosScrollFix(node) {
       this.calendarPaneOpenedFrom = null;
       this.$mdUtil.enableScrolling();
 
+      this.ngModelCtrl.$setTouched();
+
       this.documentElement.off('click touchstart', this.bodyClickHandler);
       window.removeEventListener('resize', this.windowResizeHandler);
     }
@@ -8595,6 +8597,9 @@ function iosScrollFix(node) {
    * @param {boolean} isFocused
    */
   DatePickerCtrl.prototype.setFocused = function(isFocused) {
+    if (!isFocused) {
+      this.ngModelCtrl.$setTouched();
+    }
     this.isFocused = isFocused;
   };
 
@@ -11621,9 +11626,24 @@ function mdInputContainerDirective($mdTheming, $parse) {
     controller: ContainerCtrl
   };
 
-  function postLink(scope, element, attr) {
+  function postLink(scope, element) {
     $mdTheming(element);
-    if (element.find('md-icon').length) element.addClass('md-has-icon');
+
+    var iconElements = element.find('md-icon');
+    var icons = iconElements.length ? iconElements : element[0].getElementsByClassName('md-icon');
+
+    // Incase there's one icon we want to identify where the icon is (right or left) and apply the related class
+    if (icons.length == 1) {
+      var next = icons[0].nextElementSibling;
+      var previous = icons[0].previousElementSibling;
+
+      element.addClass(next && next.tagName === 'INPUT' ? 'md-icon-left' :
+                       previous && previous.tagName === 'INPUT' ? 'md-icon-right' : '');
+    }
+    // In case there are two icons we apply both icon classes
+    else if (icons.length == 2) {
+      element.addClass('md-icon-left md-icon-right');
+    }
   }
 
   function ContainerCtrl($scope, $element, $attrs, $animate) {
@@ -11806,7 +11826,8 @@ function inputTextareaDirective($mdUtil, $window, $mdAria) {
 
     // Add an error spacer div after our input to provide space for the char counter and any ng-messages
     var errorsSpacer = angular.element('<div class="md-errors-spacer">');
-    element.after(errorsSpacer);
+    // element.after appending the div before the icon (if exist) which cause a problem with calculating which class to apply
+    element.parent().append(errorsSpacer);
 
     if (!containerCtrl.label) {
       $mdAria.expect(element, 'aria-label', element.attr('placeholder'));
@@ -14853,7 +14874,7 @@ function SelectProvider($$interimElementProvider) {
       } else {
         left = (targetRect.left + centeredRect.left - centeredRect.paddingLeft) + 2;
         top = Math.floor(targetRect.top + targetRect.height / 2 - centeredRect.height / 2 -
-            centeredRect.top + contentNode.scrollTop) + 2;
+            centeredRect.top + contentNode.scrollTop);
 
         transformOrigin = (centeredRect.left + targetRect.width / 2) + 'px ' +
           (centeredRect.top + centeredRect.height / 2 - contentNode.scrollTop) + 'px 0px';
@@ -15175,7 +15196,7 @@ function SidenavFocusDirective() {
  * @param {string=} md-component-id componentId to use with $mdSidenav service.
  * @param {expression=} md-is-locked-open When this expression evalutes to true,
  * the sidenav 'locks open': it falls into the content's flow instead
- * of appearing over it. This overrides the `is-open` attribute.
+ * of appearing over it. This overrides the `md-is-open` attribute.
  *
  * The $mdMedia() service is exposed to the is-locked-open attribute, which
  * can be given a media query or one of the `sm`, `gt-sm`, `md`, `gt-md`, `lg` or `gt-lg` presets.
@@ -20953,9 +20974,11 @@ function mdIconDirective($mdIcon, $mdTheming, $mdAria ) {
 
         element.empty();
         if (attrVal) {
-          $mdIcon(attrVal).then(function(svg) {
-            element.append(svg);
-          });
+          $mdIcon(attrVal)
+            .then(function(svg) {
+              element.empty();
+              element.append(svg);
+            });
         }
 
       });
